@@ -65,6 +65,7 @@ export default async function registerPlugins() {
         // 设置物料描述
         const { material, project } = ctx;
 
+        // 动态态加载物料
         await material.setAssets(await injectAssets(assets));
 
         const schema = await getPageSchema();
@@ -186,6 +187,7 @@ export default async function registerPlugins() {
   await plugins.register(loadAssetsSample);
 
   // 注册保存面板
+  // 注册插件 e.g. 保存到本地 按钮
   const saveSample = (ctx: ILowCodePluginContext) => {
     return {
       name: 'saveSample',
@@ -201,7 +203,7 @@ export default async function registerPlugins() {
           },
           content: (
             <Button onClick={() => saveSchema()}>
-              保存到本地
+              保存到本地111
             </Button>
           ),
         });

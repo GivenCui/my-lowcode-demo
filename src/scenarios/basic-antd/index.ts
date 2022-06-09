@@ -20,7 +20,7 @@ preference.set('DataSourcePane', {
 (async function main() {
   await plugins.register(scenarioSwitcher);
   await registerPlugins();
-
+  // 初始化低代码引擎
   init(document.getElementById('lce-container')!, {
     // designMode: 'live',
     // locale: 'zh-CN',

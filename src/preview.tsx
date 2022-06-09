@@ -2,6 +2,7 @@ import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
 import { Loading } from '@alifd/next';
 import { buildComponents, assetBundle, AssetLevel, AssetLoader } from '@alilc/lowcode-utils';
+// 渲染 Schema
 import ReactRenderer from '@alilc/lowcode-react-renderer';
 import { injectComponents } from '@alilc/lowcode-plugin-inject';
 import { createFetchHandler } from '@alilc/lowcode-datasource-fetch-handler'
@@ -46,6 +47,9 @@ const SamplePreview = () => {
     const assetLoader = new AssetLoader();
     await assetLoader.load(libraryAsset);
     const components = await injectComponents(buildComponents(libraryMap, componentsMap));
+
+    console.log('schema -> ', JSON.stringify(schema));
+    console.log('components -> ', JSON.stringify(components));
 
     setData({
       schema,
