@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Select } from '@alifd/next';
-import { schema1 } from './testSchema'
+import { schema1, schema2 } from './testSchema'
 
 interface SelectSetterProps {
   onChange: (value: string) => undefined;
@@ -9,7 +9,8 @@ interface SelectSetterProps {
 }
 
 const schemaMap = {
-  1001: JSON.stringify(schema1)
+  1001: JSON.stringify(schema1),
+  1002: JSON.stringify(schema2),
 }
 
 const formateOptions = (options: any[]) => {
@@ -62,6 +63,10 @@ export default class SelectSchemaSetter extends Component<SelectSetterProps> {
         {
           title: '表单一',
           value: '1001'
+        },
+        {
+          title: '表单二',
+          value: '1002'
         }
       ]
   
