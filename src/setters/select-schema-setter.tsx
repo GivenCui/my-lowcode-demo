@@ -74,13 +74,17 @@ export default class SelectSchemaSetter extends Component<SelectSetterProps> {
   onChangeHandle = (val) => {
     const { onChange } = this.props;
     onChange && onChange({
+      id: val,
       schema: JSON.parse(schemaMap[val])
     });
+    this.setState({
+      value: val
+    })
   }
 
   render() {
-    const { mode, value } = this.props;
-    const {options} = this.state;
+    const { mode } = this.props;
+    const {options, value} = this.state;
     console.log('render', value);
     return (
       <Select
