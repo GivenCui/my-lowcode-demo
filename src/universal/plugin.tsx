@@ -26,6 +26,8 @@ import CustomSetter from '../setters/custom-setter';
 import Logo from '../sample-plugins/logo';
 import { deleteHiddenTransducer } from '../sample-plugins/delete-hidden-transducer';
 
+import SelectSchemaSetter from '../setters/select-schema-setter';
+
 import {
   loadIncrementalAssets,
   getPageSchema,
@@ -130,6 +132,10 @@ export default async function registerPlugins() {
         const { setters, skeleton } = ctx;
         // 注册setterMap
         setters.registerSetter(setterMap);
+
+        // 注册自定义setter: SelectSchemaSetter
+        setters.registerSetter('SelectSchemaSetter', SelectSchemaSetter);
+
         // 注册插件
         // 注册事件绑定面板
         skeleton.add({

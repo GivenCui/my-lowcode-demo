@@ -5,6 +5,7 @@ import { TransformStage } from '@alilc/lowcode-types';
 
 export const loadIncrementalAssets = () => {
   material?.onChangeAssets(() => {
+    console.log('--- 物料加载成功');
     Message.success('[MCBreadcrumb] 物料加载成功');
   });
 
