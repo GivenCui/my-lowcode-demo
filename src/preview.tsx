@@ -4,17 +4,8 @@ import { Loading } from '@alifd/next';
 import { buildComponents, assetBundle, AssetLevel, AssetLoader } from '@alilc/lowcode-utils';
 // 渲染 Schema
 import ReactRenderer from '@alilc/lowcode-react-renderer';
-import { injectComponents } from '@alilc/lowcode-plugin-inject';
-import { createFetchHandler } from '@alilc/lowcode-datasource-fetch-handler'
 
-import { getProjectSchemaFromLocalStorage, getPackagesFromLocalStorage } from './universal/utils';
-
-const getScenarioName = function() {
-  if (location.search) {
-   return new URLSearchParams(location.search.slice(1)).get('scenarioName') || 'index'
-  }
-  return 'index';
-}
+// 容器基础能力对应代码初始化
 
 const SamplePreview = () => {
   const [data, setData] = useState({});
@@ -70,11 +61,6 @@ const SamplePreview = () => {
         className="lowcode-plugin-sample-preview-content"
         schema={schema}
         components={components}
-        appHelper={{
-          requestHandlersMap: {
-            fetch: createFetchHandler()
-          }
-        }}
       />
     </div>
   );
